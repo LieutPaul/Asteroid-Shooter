@@ -1,14 +1,14 @@
 #include "Player.h"
 
 // Constructor for the player class
-player::player()
+Player::Player()
 {
     name = "player";
     dir = 1;
 }
 
 // Update function to update the player's position and speed
-void player::update()
+void Player::update()
 {
     if (thrust)
     {
@@ -43,25 +43,25 @@ void player::update()
 }
 
 // Setter function to set the thrust state of the player
-void player::setThrust(bool thrust)
+void Player::setThrust(bool thrust)
 {
     this->thrust = thrust;
 }
 
 // Getter function to get the thrust state of the player
-bool player::getThrust()
+bool Player::getThrust()
 {
     return thrust;
 }
 
 // Setter function to set the direction of the player
-void player::setDir(int dir)
+void Player::setDir(int dir)
 {
     this->dir = dir;
 }
 
 // Getter function to get the direction of the player
-int player::getDir()
+int Player::getDir()
 {
     return dir;
 }

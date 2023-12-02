@@ -29,7 +29,7 @@ TEST(AsteroidCreationTest, AsteroidCreation) {
     Animation anim;
     Texture t4;
     t4.loadFromFile("images/rock.png");
-    asteroid* ast = new asteroid();
+    Asteroid* ast = new Asteroid();
     ast->settings(anim, 300, 400, 45, 30); // Set arbitrary values for position and attributes
 
     // Check if the asteroid's settings are applied correctly
@@ -47,7 +47,7 @@ TEST(BulletCreationTest, BulletCreation) {
     Texture t5;
     t5.loadFromFile("images/fire_blue.png");
 
-    bullet* b = new bullet();
+    Bullet* b = new Bullet();
     b->settings(anim, 200, 200, 90, 15); // Set arbitrary values for position and attributes
 
     // Check if bullet settings are applied correctly
@@ -62,7 +62,7 @@ TEST(BulletCreationTest, BulletCreation) {
 // Test player movement update
 TEST(PlayerMovementTest, PlayerMovement) {
     Animation anim;
-    player* p = new player();
+    Player* p = new Player();
     p->settings(anim, 500, 500, 0, 20); // Set arbitrary values for player
 
     float initial_dx = p->getDx();
@@ -83,7 +83,7 @@ TEST(KeyPressEventHandlerTest, SpaceBar) {
     RenderWindow app; 
     Animation sBullet; 
     std::list<Entity*> entities;
-    player p;
+    Player p;
 
     Event event;
     event.type = Event::KeyPressed;
@@ -106,7 +106,7 @@ TEST(KeyPressEventHandlerTest, SpaceBar) {
 }
 
 TEST(IntegrationTest, ObjectsCollide) {
-    player p;
+    Player p;
     Entity* b = new Entity();
 
     // Set positions and radii for testing collision

@@ -2,14 +2,14 @@
 #define PLAYER_H
 #include "Entity.h"
 
-class player : public Entity
+class Player : public Entity
 {
 private:
     bool thrust;
     int dir;
 
 public:
-    player();
+    Player();
     void update();
     // Generate definitions for getters and setters
     bool getThrust();

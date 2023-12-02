@@ -8,12 +8,12 @@ bool isCollide(Entity *a, Entity *b) {
            (a->getR() + b->getR()) * (a->getR() + b->getR());
 }
 
-void keyPressEventHandler(RenderWindow *app, Animation *sBullet, std::list<Entity *> *entities, player *p, Event *event)
+void keyPressEventHandler(RenderWindow *app, Animation *sBullet, std::list<Entity *> *entities, Player *p, Event *event)
 {
     if (event->type == Event::KeyPressed)
         if (event->key.code == Keyboard::Space)
         {
-            bullet *b = new bullet();
+            Bullet *b = new Bullet();
             b->settings(*sBullet, p->getX(), p->getY(), p->getAngle(), 10);
             entities->push_back(b);
         }
@@ -52,13 +52,13 @@ void bulletAsteroidCollisionHandler(Entity *a, Entity *b, Animation *sExplosion,
     {
         if (a->getR() == 15)
             continue;
-        Entity *e = new asteroid();
+        Entity *e = new Asteroid();
         e->settings(*sRock_small, a->getX(), a->getY(), rand() % 360, 15);
         entities->push_back(e);
     }
 }
 
-void playerAsteroidCollisionHandler(player *p, Entity *a, Entity *b, Animation *sExplosion_ship, Animation *sPlayer, std::list<Entity *> *entities)
+void playerAsteroidCollisionHandler(Player *p, Entity *a, Entity *b, Animation *sExplosion_ship, Animation *sPlayer, std::list<Entity *> *entities)
 {
     b->setLife(false);
     Entity *e = new Entity();
@@ -70,7 +70,7 @@ void playerAsteroidCollisionHandler(player *p, Entity *a, Entity *b, Animation *
     p->setDy(0);
 }
 
-void handleUserAction(Event &event, RenderWindow &app, Animation &sBullet, std::list<Entity *> &entities, player *p, bool &game_over, bool &paused, Sprite &background, int &score, sf::Text &text){
+void handleUserAction(Event &event, RenderWindow &app, Animation &sBullet, std::list<Entity *> &entities, Player *p, bool &game_over, bool &paused, Sprite &background, int &score, sf::Text &text){
     if (event.type == Event::Closed || (event.type == Event::KeyPressed && event.key.code == sf::Keyboard::Q)){
         app.close();
     }
@@ -94,7 +94,7 @@ void handleUserAction(Event &event, RenderWindow &app, Animation &sBullet, std::
 }
 
 // Function to check for collisions between entities
-void checkCollisions(std::list<Entity*> &entities, player *p, Animation &sExplosion, Animation &sRock_small, Animation &sRock, Animation &sExplosion_ship, Animation &sPlayer, RenderWindow &app, int &score, sf::Text &text, bool &game_over){
+void checkCollisions(std::list<Entity*> &entities, Player *p, Animation &sExplosion, Animation &sRock_small, Animation &sRock, Animation &sExplosion_ship, Animation &sPlayer, RenderWindow &app, int &score, sf::Text &text, bool &game_over){
     for (auto a : entities){
         for (auto b : entities){
             if (a->getName() == "asteroid" && b->getName() == "bullet")
@@ -118,7 +118,7 @@ void checkCollisions(std::list<Entity*> &entities, player *p, Animation &sExplos
                     }
                     for (int i = 0; i < 8; i++)
                     {
-                        asteroid *a = new asteroid();
+                        Asteroid *a = new Asteroid();
                         a->settings(sRock, rand() % W, rand() % H, rand() % 360, 25);
                         entities.push_back(a);
                     }
@@ -200,12 +200,12 @@ int main()
 
     for (int i = 0; i < 15; i++)
     {
-        asteroid *a = new asteroid();
+        Asteroid *a = new Asteroid();
         a->settings(sRock, rand() % W, rand() % H, rand() % 360, 25);
         entities.push_back(a);
     }
 
-    player *p = new player();
+    Player *p = new Player();
     p->settings(sPlayer, 200, 200, 0, 20);
     entities.push_back(p);
 
@@ -238,7 +238,7 @@ int main()
 
             if (rand() % 150 == 0)
             {
-                asteroid *a = new asteroid();
+                Asteroid *a = new Asteroid();
                 a->settings(sRock, 0, rand() % H, rand() % 360, 25);
                 entities.push_back(a);
             }

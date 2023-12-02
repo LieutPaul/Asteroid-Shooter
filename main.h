@@ -14,11 +14,11 @@
 #define MAIN_H
 
 bool isCollide(Entity *a, Entity *b);
-void keyPressEventHandler(RenderWindow *app, Animation *sBullet, std::list<Entity *> *entities, player *p, Event *event);
+void keyPressEventHandler(RenderWindow *app, Animation *sBullet, std::list<Entity *> *entities, Player *p, Event *event);
 void bulletAsteroidCollisionHandler(Entity *a, Entity *b, Animation *sExplosion, Animation *sRock_small, std::list<Entity *> *entities);
-void playerAsteroidCollisionHandler(player *p, Entity *a, Entity *b, Animation *sExplosion_ship, Animation *sPlayer, std::list<Entity *> *entities);
-void handleUserAction(Event &event, RenderWindow &app, Animation &sBullet, std::list<Entity *> &entities, player *p, bool &game_over, bool &paused, Sprite &background, int &score, sf::Text &text);
-void checkCollisions(std::list<Entity*> &entities, player *p, Animation &sExplosion, Animation &sRock_small, Animation &sRock, Animation &sExplosion_ship, Animation &sPlayer, RenderWindow &app, int &score, sf::Text &text, bool &game_over);
+void playerAsteroidCollisionHandler(Player *p, Entity *a, Entity *b, Animation *sExplosion_ship, Animation *sPlayer, std::list<Entity *> *entities);
+void handleUserAction(Event &event, RenderWindow &app, Animation &sBullet, std::list<Entity *> &entities, Player *p, bool &game_over, bool &paused, Sprite &background, int &score, sf::Text &text);
+void checkCollisions(std::list<Entity*> &entities, Player *p, Animation &sExplosion, Animation &sRock_small, Animation &sRock, Animation &sExplosion_ship, Animation &sPlayer, RenderWindow &app, int &score, sf::Text &text, bool &game_over);
 void updateEntities(std::list<Entity*> &entities);
 
 #endif // MAIN_H

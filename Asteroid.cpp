@@ -1,7 +1,7 @@
 #include "Asteroid.h"
 
 // Constructor for the asteroid class
-asteroid::asteroid()
+Asteroid::Asteroid()
 {
     dx = rand() % 8 - 4; // Set a random value for dx between -4 and 4
     dy = rand() % 8 - 4; // Set a random value for dy between -4 and 4
@@ -9,7 +9,7 @@ asteroid::asteroid()
 }
 
 // Update the position of the asteroid
-void asteroid::update()
+void Asteroid::update()
 {
     x += dx; // Update the x position by adding dx
     y += dy; // Update the y position by adding dy

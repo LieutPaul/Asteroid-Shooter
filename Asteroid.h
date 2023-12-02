@@ -2,10 +2,10 @@
 #define ASTEROID_H
 #include "Entity.h"
 
-class asteroid : public Entity
+class Asteroid : public Entity
 {
 public:
-    asteroid();
+    Asteroid();
     void update();
 };
 

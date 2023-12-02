@@ -1,13 +1,13 @@
 #include "Bullet.h"
 
 // Constructor for the bullet class
-bullet::bullet()
+Bullet::Bullet()
 {
     name = "bullet";
 }
 
 // Update function to update the bullet's position
-void bullet::update()
+void Bullet::update()
 {
     // Calculate the change in x and y coordinates based on the angle
     dx = cos(angle * DEGTORAD) * 6;

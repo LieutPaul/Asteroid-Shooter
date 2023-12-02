@@ -17,10 +17,14 @@ Controls are
 
 ## Running tests
 Run the following commands in the terminal:
-
-    g++ -std=c++11 -pthread *.cpp googletest/build/lib/libgtest.a -o test_executable -L /mnt/c/Users/HP/Desktop/SE/Demo/SFML-2.6.0/lib -lsfml-graphics -lsfml-window -lsfml-system
-    ./test_executable
+```
+    g++ -std=c++11 -pthread *.cpp googletest/build/lib/libgtest.a -o test_executable -L SFML-2.6.0/lib -lsfml-graphics -lsfml-window -lsfml-system -w
+```
+```
+ ./test_executable
+```
 The results of all the tests will now be displayed.
+- Replace `SFML-2.6.0/lib` with the path to your SFML library.
 
 ## Classes
 - Animation:
